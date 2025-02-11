@@ -1,7 +1,9 @@
 import { z } from 'zod';
-import { baseProcedure, createTRPCRouter } from '../init';
+import { protectedProcedure, createTRPCRouter } from '../init';
+// import { auth } from '@clerk/nextjs/server';
+
 export const appRouter = createTRPCRouter({
-  hello: baseProcedure
+  hello: protectedProcedure
     .input(
       z.object({
         text: z.string(),
